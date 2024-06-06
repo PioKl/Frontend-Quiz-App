@@ -1,0 +1,244 @@
+@use "Resolutions" as *;
+
+.quizQuestion {
+  margin-bottom: 4rem;
+  @include tablet {
+    margin-bottom: 6.4rem;
+  }
+  @include desktopSmall {
+    width: 100%;
+  }
+  &__questionNumber {
+    display: block;
+    margin-bottom: 1.2rem;
+    color: var(--c-grey-navy);
+    font-size: var(--body-f-s-mobile);
+    font-weight: var(--f-light);
+    font-style: italic;
+
+    @include tablet {
+      margin-bottom: 2.7rem;
+      font-size: var(--body-f-s-desktop);
+    }
+  }
+
+  &__heading {
+    margin-bottom: 2.4rem;
+    font-size: var(--heading-f-m-mobile);
+    font-weight: var(--f-medium);
+    line-height: 120%;
+
+    @include tablet {
+      margin-bottom: 4rem;
+      font-size: var(--heading-f-m-desktop);
+    }
+    @include desktopSmall {
+      margin-bottom: 16.4rem;
+    }
+  }
+
+  &__questionBar {
+    display: grid;
+    align-items: center;
+    width: 100%;
+    height: 1.6rem;
+    padding: 0.4rem;
+    border-radius: 999px;
+    background-color: var(--c-pure-white);
+
+    &:before {
+      content: "";
+      width: calc(var(--questionBar-width) * 10%);
+      height: 0.8rem;
+      border-radius: 104px;
+      background-color: var(--c-purple);
+    }
+  }
+
+  &.--darkMode {
+    .quizQuestion__questionNumber {
+      color: var(--c-light-bluish);
+    }
+
+    .quizQuestion__heading {
+      color: var(--c-pure-white);
+    }
+
+    .quizQuestion__questionBar {
+      background-color: var(--c-navy);
+    }
+  }
+}
+
+.quizAnswers {
+  margin-bottom: 5.7rem;
+  @include desktopSmall {
+    width: 100%;
+  }
+  &__list {
+    display: grid;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    @include tablet {
+      gap: 2.4rem;
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  &__list-item {
+    &.--correct,
+    &.--wrong {
+      .quizAnswers__button {
+        &::after {
+          content: "";
+          display: flex;
+          min-width: 3.2rem;
+          width: 3.2rem;
+          height: 3.2rem;
+          margin-left: auto;
+          background-position: center;
+          background-repeat: no-repeat;
+
+          @include tablet {
+            min-width: 4rem;
+            width: 4rem;
+            height: 4rem;
+          }
+        }
+      }
+    }
+
+    &.--correct {
+      .quizAnswers__button {
+        border-color: var(--c-green);
+        &::before {
+          color: var(--c-pure-white);
+          background-color: var(--c-green);
+        }
+        &::after {
+          background-image: url("../assets/icon-correct.svg");
+        }
+      }
+    }
+
+    &.--wrong {
+      .quizAnswers__button {
+        border-color: var(--c-red);
+        &::before {
+          color: var(--c-pure-white);
+          background-color: var(--c-red);
+        }
+        &::after {
+          background-image: url("../assets/icon-error.svg");
+        }
+      }
+    }
+  }
+
+  &__button {
+    span {
+      margin-right: 1.6rem;
+
+      @include tablet {
+        margin-right: 3.2rem;
+      }
+    }
+    &.--0,
+    &.--1,
+    &.--2,
+    &.--3 {
+      &::before {
+        content: "";
+        display: grid;
+        place-items: center;
+        min-width: 4rem;
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1.6rem;
+        font-size: var(--heading-f-s-mobile);
+        font-weight: var(--f-medium);
+        border-radius: 0.6rem;
+        color: var(--c-grey-navy);
+        background-color: var(--c-light-grey);
+
+        @include tablet {
+          min-width: 5.6rem;
+          width: 5.6rem;
+          height: 5.6rem;
+          margin-right: 3.2rem;
+          font-size: var(--heading-f-s-desktop);
+        }
+      }
+    }
+
+    &.--0 {
+      &::before {
+        content: "A";
+      }
+    }
+    &.--1 {
+      &::before {
+        content: "B";
+      }
+    }
+    &.--2 {
+      &::before {
+        content: "C";
+      }
+    }
+    &.--3 {
+      &::before {
+        content: "D";
+      }
+    }
+
+    &:hover {
+      &::before {
+        color: var(--c-purple);
+        background-color: #f6e7ff;
+      }
+    }
+
+    &.--active {
+      &:hover {
+        color: inherit;
+      }
+      &::before {
+        background-color: var(--c-purple);
+        color: var(--c-pure-white);
+      }
+    }
+  }
+
+  &__noAnswer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--c-red);
+
+    &::before {
+      content: "";
+      display: flex;
+      width: 3.2rem;
+      height: 3.2rem;
+      margin-right: 1.2rem;
+      background-image: url("../assets/icon-error.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include tablet {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    &.--active {
+      opacity: 1;
+    }
+
+    &.--hidden {
+      opacity: 0;
+    }
+  }
+}
