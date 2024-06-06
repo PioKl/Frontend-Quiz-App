@@ -1,0 +1,40 @@
+@use "Resolutions" as *;
+
+.pattern {
+  position: fixed;
+  z-index: -1;
+  min-height: 100vh;
+  width: 100%;
+  background-image: var(--background-mobile-light);
+  background-repeat: no-repeat;
+  background-color: var(--c-light-grey);
+
+  @include tablet {
+    background-image: var(--background-tablet-light);
+  }
+  @include desktopSmall {
+    background-image: var(--background-desktop-light);
+    background-size: cover;
+  }
+
+  &.--darkMode {
+    background-color: var(--c-darkNavy);
+    background-image: var(--background-mobile-dark);
+
+    @include tablet {
+      background-image: var(--background-tablet-dark);
+    }
+
+    @include desktopSmall {
+      background-image: var(--background-desktop-dark);
+    }
+  }
+}
+
+.main {
+  @include desktopSmall {
+    display: flex;
+    width: 100%;
+    gap: 13.1rem;
+  }
+}
