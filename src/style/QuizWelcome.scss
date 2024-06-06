@@ -1,0 +1,116 @@
+@use "Resolutions" as *;
+
+.quizWelcome {
+  margin-bottom: 4rem;
+
+  @include tablet {
+    margin-bottom: 6.4rem;
+  }
+
+  @include desktopSmall {
+    width: 100%;
+  }
+
+  &__heading {
+    display: grid;
+    margin-bottom: 1.6rem;
+    font-weight: var(--f-light);
+
+    @include desktopSmall {
+      margin-bottom: 4.8rem;
+    }
+  }
+  &__headingOne {
+    margin-bottom: 0.8rem;
+  }
+  &__headingTwo {
+    font-weight: var(--f-medium);
+  }
+
+  &__quickInfo {
+    color: var(--c-grey-navy);
+    font-size: var(--body-f-s-mobile);
+    font-weight: var(--f-light);
+    font-style: italic;
+
+    @include tablet {
+      font-size: var(--body-f-s-desktop);
+    }
+  }
+
+  &.--darkMode {
+    .quizWelcome__heading {
+      color: var(--c-pure-white);
+    }
+
+    .quizWelcome__quickInfo {
+      color: var(--c-light-bluish);
+    }
+  }
+}
+
+.quizSubjects {
+  @include desktopSmall {
+    width: 100%;
+  }
+  &__list {
+    display: grid;
+    gap: 1.2rem;
+
+    @include tablet {
+      gap: 2.4rem;
+    }
+  }
+
+  &__button {
+    &.--html,
+    &.--css,
+    &.--javascript,
+    &.--accessibility {
+      &::before {
+        content: "";
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1.6rem;
+        border-radius: 0.6rem;
+        background-size: 2.857rem;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include tablet {
+          width: 5.6rem;
+          height: 5.6rem;
+          margin-right: 3.2rem;
+          background-size: 4rem;
+        }
+      }
+    }
+
+    &.--html {
+      &::before {
+        background-color: #fff1e9;
+        background-image: url("../assets/icon-html.svg");
+      }
+    }
+
+    &.--css {
+      &::before {
+        background-color: #e0fdef;
+        background-image: url("../assets/icon-css.svg");
+      }
+    }
+    &.--javascript {
+      &::before {
+        background-color: #ebf0ff;
+        background-image: url("../assets/icon-js.svg");
+      }
+    }
+    &.--accessibility {
+      &::before {
+        background-color: #f6e7ff;
+        background-image: url("../assets/icon-accessibility.svg");
+      }
+    }
+  }
+}
