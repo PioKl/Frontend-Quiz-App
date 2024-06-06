@@ -1,0 +1,121 @@
+@use "Resolutions" as *;
+.header {
+  padding-top: 1.6rem;
+  padding-bottom: 4.9rem;
+
+  @include tablet {
+    padding-top: 4rem;
+    padding-bottom: 4.9rem;
+  }
+
+  @include desktopSmall {
+    padding-top: 8.3rem;
+    padding-bottom: 8.5rem;
+  }
+
+  &.--darkMode {
+    .nav__title {
+      color: var(--c-pure-white);
+    }
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+
+  @include tablet {
+    height: 5.6rem;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    font-weight: var(--f-medium);
+
+    &.--html,
+    &.--css,
+    &.--javascript,
+    &.--accessibility {
+      &::before {
+        content: "";
+        display: flex;
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1.6rem;
+        border-radius: 0.6rem;
+        background-size: 2.857rem;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        @include tablet {
+          width: 5.6rem;
+          height: 5.6rem;
+          margin-right: 2.4rem;
+          background-size: 4rem;
+        }
+      }
+    }
+
+    &.--html {
+      &::before {
+        background-color: #fff1e9;
+        background-image: url("../assets/icon-html.svg");
+      }
+    }
+
+    &.--css {
+      &::before {
+        background-color: #e0fdef;
+        background-image: url("../assets/icon-css.svg");
+      }
+    }
+    &.--javascript {
+      &::before {
+        background-color: #ebf0ff;
+        background-image: url("../assets/icon-js.svg");
+      }
+    }
+    &.--accessibility {
+      &::before {
+        background-color: #f6e7ff;
+        background-image: url("../assets/icon-accessibility.svg");
+      }
+    }
+  }
+
+  &__modeContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+  }
+  &__button {
+    cursor: pointer;
+    width: 4.8rem;
+    height: 2.8rem;
+    margin-inline: 1.6rem;
+    padding-inline: 0.4rem;
+    border-radius: 999px;
+    border: none;
+    background-color: var(--c-purple);
+    transition: all 0.5s ease-in-out;
+
+    &::before {
+      content: "";
+      display: block;
+      position: relative;
+      background-color: var(--c-pure-white);
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      left: 0;
+      transition: all 0.2s ease-in-out;
+    }
+    &[aria-expanded="true"] {
+      &::before {
+        left: 50%;
+      }
+    }
+  }
+}
