@@ -1,0 +1,131 @@
+@use "Resolutions" as *;
+
+:root {
+  --c-purple: #a729f5;
+  --c-darkNavy: #313e51;
+  --c-navy: #3b4d66;
+  --c-grey-navy: #626c7f;
+  --c-light-bluish: #abc1e1;
+  --c-light-grey: #f4f6fa;
+  --c-pure-white: #ffffff;
+  --c-green: #26d782;
+  --c-red: #ee5454;
+
+  --display-f-xl-mobile: 8.8rem; //do tableta
+  --display-f-xl-desktop: 14.4rem; //od tableta
+
+  --heading-f-l-mobile: 4rem; //do tableta
+  --heading-f-l-desktop: 6.4rem; //od tableta
+
+  --heading-f-m-mobile: 2rem; //do tableta
+  --heading-f-m-desktop: 3.6rem; //od tableta
+
+  --heading-f-s-mobile: 1.8rem; //do tableta
+  --heading-f-s-desktop: 2.8rem; //od tableta
+
+  --body-f-m-mobile: 1.8rem;
+  --body-f-m-desktop: 2.4rem;
+
+  --body-f-s-mobile: 1.4rem;
+  --body-f-s-desktop: 2rem;
+
+  --f-light: 300;
+  --f-regular: 400;
+  --f-medium: 500;
+
+  --body-lh: 150%;
+
+  --background-mobile-light: url("../assets/pattern-background-mobile-light.svg");
+  --background-tablet-light: url("../assets/pattern-background-tablet-light.svg");
+  --background-desktop-light: url("../assets/pattern-background-desktop-light.svg");
+
+  --background-mobile-dark: url("../assets/pattern-background-mobile-dark.svg");
+  --background-tablet-dark: url("../assets/pattern-background-tablet-dark.svg");
+  --background-desktop-dark: url("../assets/pattern-background-desktop-dark.svg");
+
+  --questionBar-width: 1;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  font-size: 62.5%; //10px/16px = 62.5%, 1rem = 10px;
+}
+
+body {
+  min-height: 100vh;
+  font-size: var(--body-f-m-mobile);
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  line-height: 150%;
+
+  @include tablet {
+    font-size: var(--body-f-m-desktop);
+  }
+  @include desktopSmall {
+    background-size: cover;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--c-darkNavy);
+  line-height: 100%;
+}
+h1 {
+  font-size: var(--heading-f-l-mobile);
+  @include tablet {
+    font-size: var(--heading-f-l-desktop);
+  }
+}
+h2 {
+  font-size: var(--heading-f-m-mobile);
+  @include tablet {
+    font-size: var(--heading-f-m-desktop);
+  }
+}
+h3 {
+  font-size: var(--heading-f-s-mobile);
+  @include tablet {
+    font-size: var(--heading-f-s-desktop);
+  }
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+.wrapper {
+  width: min(1160px, calc(100% - 48px));
+  margin: auto;
+
+  @include tablet {
+    width: min(1160px, calc(100% - 128px));
+  }
+}
