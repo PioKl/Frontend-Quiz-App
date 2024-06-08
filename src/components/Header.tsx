@@ -1,4 +1,6 @@
 import { useRef } from "react";
+import "../style/Typography.scss";
+import "../style/QuizIcon.scss";
 import "../style/Header.scss";
 import IconSunDark from "../assets/icon-sun-dark.svg";
 import IconMoonDark from "../assets/icon-moon-dark.svg";
@@ -36,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({
       <nav className="nav">
         {selectedSubject !== null && (
           <h3
-            className={`nav__title --${quizzes[
+            className={`quizIcon nav__title --${quizzes[
               selectedSubject
             ].title.toLowerCase()}`}
           >

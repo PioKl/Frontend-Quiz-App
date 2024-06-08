@@ -1,3 +1,5 @@
+import "../style/Typography.scss";
+import "../style/QuizIcon.scss";
 import "../style/QuizSummary.scss";
 import "../style/Buttons.scss";
 import { QuizData } from "../types/types";
@@ -29,17 +31,23 @@ const QuizSummary: React.FC<QuizSummaryProps> = ({
   };
   return (
     <>
-      <div className={`quizCompleted ${darkMode ? "--darkMode" : ""}`}>
-        <h1 className="quizCompleted__heading">
-          <span className="quizCompleted__headingOne">Quiz completed</span>
-          <span className="quizCompleted__headingTwo">You scored...</span>
+      <div
+        className={`quizHeading quizCompleted ${darkMode ? "--darkMode" : ""}`}
+      >
+        <h1 className="quizHeading__heading quizCompleted__heading">
+          <span className="quizHeading__headingOne quizCompleted__headingOne">
+            Quiz completed
+          </span>
+          <span className="quizHeading__headingTwo quizCompleted__headingTwo">
+            You scored...
+          </span>
         </h1>
       </div>
       <div className={`quizSummary ${darkMode ? "--darkMode" : ""}`}>
         <div className="quizSummary__pointsContainer">
           {" "}
           <h3
-            className={`quizSummary__subject --${quizzes[
+            className={`quizIcon quizSummary__subject --${quizzes[
               selectedSubject
             ].title.toLowerCase()}`}
           >

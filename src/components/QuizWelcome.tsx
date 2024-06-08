@@ -1,3 +1,5 @@
+import "../style/Typography.scss";
+import "../style/QuizIcon.scss";
 import "../style/QuizWelcome.scss";
 import "../style/Buttons.scss";
 import { QuizData } from "../types/types";
@@ -15,10 +17,16 @@ const QuizWelcome: React.FC<QuizWelcomeProps> = ({
 }) => {
   return (
     <>
-      <div className={`quizWelcome ${darkMode ? "--darkMode" : ""}`}>
-        <h1 className="quizWelcome__heading">
-          <span className="quizWelcome__headingOne">Welcome to the</span>
-          <span className="quizWelcome__headingTwo">Frontend Quiz!</span>
+      <div
+        className={`quizHeading quizWelcome ${darkMode ? "--darkMode" : ""}`}
+      >
+        <h1 className="quizHeading__heading quizWelcome__heading">
+          <span className="quizHeading__headingOne quizWelcome__headingOne">
+            Welcome to the
+          </span>
+          <span className="quizHeading__headingTwo quizWelcome__headingTwo">
+            Frontend Quiz!
+          </span>
         </h1>
         <span className="quizWelcome__quickInfo">
           Pick a subject to get started.
@@ -33,7 +41,7 @@ const QuizWelcome: React.FC<QuizWelcomeProps> = ({
                 type="button"
                 className={`button-selection ${
                   darkMode ? "--darkMode" : ""
-                } quizSubjects__button --${quiz.title.toLowerCase()}`}
+                } quizIcon quizSubjects__button --${quiz.title.toLowerCase()}`}
                 onClick={(e) =>
                   setSelectedSubject(
                     parseInt(e.currentTarget.dataset.id || `${id}`)
