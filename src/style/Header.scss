@@ -38,48 +38,9 @@
     &.--javascript,
     &.--accessibility {
       &::before {
-        content: "";
-        display: flex;
-        width: 4rem;
-        height: 4rem;
-        margin-right: 1.6rem;
-        border-radius: 0.6rem;
-        background-size: 2.857rem;
-        background-position: center;
-        background-repeat: no-repeat;
-
         @include tablet {
-          width: 5.6rem;
-          height: 5.6rem;
           margin-right: 2.4rem;
-          background-size: 4rem;
         }
-      }
-    }
-
-    &.--html {
-      &::before {
-        background-color: #fff1e9;
-        background-image: url("../assets/icon-html.svg");
-      }
-    }
-
-    &.--css {
-      &::before {
-        background-color: #e0fdef;
-        background-image: url("../assets/icon-css.svg");
-      }
-    }
-    &.--javascript {
-      &::before {
-        background-color: #ebf0ff;
-        background-image: url("../assets/icon-js.svg");
-      }
-    }
-    &.--accessibility {
-      &::before {
-        background-color: #f6e7ff;
-        background-image: url("../assets/icon-accessibility.svg");
       }
     }
   }
