@@ -1,0 +1,30 @@
+@use "Resolutions" as *;
+
+.quizHeading {
+  margin-bottom: 4rem;
+
+  @include tablet {
+    margin-bottom: 6.4rem;
+  }
+
+  @include desktopSmall {
+    width: 100%;
+  }
+
+  &__heading {
+    display: grid;
+    font-weight: var(--f-light);
+  }
+  &__headingOne {
+    margin-bottom: 0.8rem;
+  }
+  &__headingTwo {
+    font-weight: var(--f-medium);
+  }
+
+  &.--darkMode {
+    .quizHeading__heading {
+      color: var(--c-pure-white);
+    }
+  }
+}
