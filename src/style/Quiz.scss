@@ -193,7 +193,8 @@
       }
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: var(--c-purple);
         background-color: #f6e7ff;

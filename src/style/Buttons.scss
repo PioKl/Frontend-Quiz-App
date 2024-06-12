@@ -21,7 +21,8 @@
 
   @include desktopSmall {
     cursor: pointer;
-    &:hover {
+    &:hover,
+    &:focus {
       background: linear-gradient(
           0deg,
           rgba(255, 255, 255, 0.5) 0%,
